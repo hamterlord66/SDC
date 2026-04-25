@@ -357,3 +357,6 @@ local Input = GiverTab:CreateInput({
 game:GetService("ReplicatedStorage"):WaitForChild("ClientToServer"):WaitForChild("DataEvents"):WaitForChild("ChangeData"):FireServer(unpack(args))
    end,
 })
+
+local UpdateSoomTab = Window:CreateTab("More Soon", nil)
+local MainSection = MainTab:CreateSection("Planning update now")
