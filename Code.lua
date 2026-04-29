@@ -2,40 +2,38 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
    Name = "Ultra CDS",
-   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   Icon = 0,
    LoadingTitle = "Loading...",
    LoadingSubtitle = "By Hampta Scripts",
-   ShowText = "CDS", -- for mobile users to unhide Rayfield, change if you'd like
-   Theme = "DarkBlue", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+   ShowText = "CDS",
+   Theme = "DarkBlue",
 
-   ToggleUIKeybind = "K", -- The keybind to toggle the UI visibility (string like "K" or Enum.KeyCode)
+   ToggleUIKeybind = "K",
 
    DisableRayfieldPrompts = false,
-   DisableBuildWarnings = false, -- Prevents Rayfield from emitting warnings when the script has a version mismatch with the interface.
-
-   -- ScriptID = "sid_xxxxxxxxxxxx", -- Your Script ID from developer.sirius.menu — enables analytics, managed keys, and script hosting
+   DisableBuildWarnings = false,
 
    ConfigurationSaving = {
-      Enabled = true,
-      FolderName = nil, -- Create a custom folder for your hub/game
+      Enabled = false,
+      FolderName = nil,
       FileName = "Big Hub"
    },
 
    Discord = {
-      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
-      Invite = "noinvitelink", -- The Discord invite code, do not include Discord.gg/. E.g. Discord.gg/ABCD would be ABCD
-      RememberJoins = true -- Set this to false to make them join the Discord every time they load it up
+      Enabled = false,
+      Invite = "noinvitelink",
+      RememberJoins = true
    },
 
-   KeySystem = true, -- Set this to true to use our key system
+   KeySystem = true,
    KeySettings = {
       Title = "SDC | KeySystem",
       Subtitle = "Please Enter Key",
-      Note = "Join Discord for key: .gg/8z5jvKedHs", -- Use this to tell the user how to get a key
-      FileName = "HamptaKey", -- It is recommended to use something unique, as other scripts using Rayfield may overwrite your key file
-      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"Hamptaispeakness"} -- List of keys that the system will accept, can be RAW file links (pastebin, github, etc.) or simple strings ("hello", "key22")
+      Note = "Join Discord for key: .gg/8z5jvKedHs",
+      FileName = "HamptaKey",
+      SaveKey = true,
+      GrabKeyFromSite = false,
+      Key = {"Hamptaispeakness"}
    }
 })
 
@@ -320,16 +318,16 @@ local Input = GiverTab:CreateInput({
    Flag = "GE",
    Callback = function(Text)
         local args = {
-	"StorylineAdvanced",
-	"Sharpe",
-	{
-		{
-		},
-		{
-			name = "Essence",
-			amount = (Text)
-		}
-	}
+ "StorylineAdvanced",
+ "Sharpe",
+ {
+  {
+  },
+  {
+   name = "Essence",
+   amount = (Text)
+  }
+ }
 }
 game:GetService("ReplicatedStorage"):WaitForChild("ClientToServer"):WaitForChild("DataEvents"):WaitForChild("ChangeData"):FireServer(unpack(args))
    end,
@@ -358,5 +356,215 @@ game:GetService("ReplicatedStorage"):WaitForChild("ClientToServer"):WaitForChild
    end,
 })
 
-local UpdateSoomTab = Window:CreateTab("More Soon", nil)
-local MainSection = MainTab:CreateSection("Planning update now")
+local Button = GiverTab:CreateButton({
+   Name = "Grant Power!",
+   Callback = function()
+        local args = {
+"StorylineAdvanced",
+"Sharpe",
+{
+{
+name = "Money",
+amount = 500000000
+},
+{
+name = "WonderToken",
+amount = 500000000
+},
+{
+name = "Essence",
+amount = 500000000
+},
+{
+name = "Wayfinder",
+amount = 1
+},
+{
+name = "Stillness",
+amount = 1
+},
+{
+name = "Hunger",
+amount = 1
+},
+{
+name = "Control",
+amount = 1
+},
+{
+name = "Everything",
+amount = 1
+},
+{
+name = "DemonOfHeaven",
+amount = 1
+},
+{
+name = "HeartOfGold",
+amount = 1
+},
+{
+name = "HeadHunter",
+amount = 1
+},
+{
+name = "Awe",
+amount = 1
+},
+{
+name = "TheDarkbringer",
+amount = 1
+},
+{
+name = "VelchireArmor",
+amount = 1
+},
+{
+name = "Bookworm",
+amount = 1
+},
+{
+name = "LegacyBookworm",
+amount = 1
+},
+{
+name = "CollectorTrophy",
+amount = 5
+},
+{
+name = "DevBackpack",
+amount = 1
+},
+{
+name = "FortuneBag",
+amount = 10000
+},
+{
+name = "AlphaTester",
+amount = 1
+},
+{
+name = "AlphaBackpack",
+amount = 1
+},
+{
+name = "AlphaTesterMount",
+amount = 1
+},
+{
+name = "DevMount",
+amount = 1
+},
+{
+name = "BookMount",
+amount = 1
+},
+{
+name = "Deepfisher",
+amount = 1
+},
+{
+name = "DragonsAlly",
+amount = 1
+}
+}
+}
+game:GetService("ReplicatedStorage"):WaitForChild("ClientToServer"):WaitForChild("DataEvents"):WaitForChild("ChangeData"):FireServer(unpack(args))
+   end,
+})
+
+local TpTab = Window:CreateTab("Teleport", nil)
+local TpSection = TpTab:CreateSection("Areas")
+
+local Button = TpTab:CreateButton({
+   Name = "Tp to Plaza",
+   Callback = function()
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(0, 0, 0)
+        end
+   end,
+})
+
+local Button = TpTab:CreateButton({
+   Name = "Tp to Beach",
+   Callback = function()
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(-44, 21, 2321)
+        end
+   end,
+})
+
+local Button = TpTab:CreateButton({
+   Name = "Tp to Canyon",
+   Callback = function()
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(1064, 48, -1300)
+        end
+   end,
+})
+
+local Button = TpTab:CreateButton({
+   Name = "Tp to Green House",
+   Callback = function()
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(2287, 9, 333)
+        end
+   end,
+})
+
+local Button = TpTab:CreateButton({
+   Name = "Tp to Farm",
+   Callback = function()
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(1733, 8, -611)
+        end
+   end,
+})
+
+local Button = TpTab:CreateButton({
+   Name = "Tp to Underground City",
+   Callback = function()
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(-621, -90, -2013)
+        end
+   end,
+})
+
+local Button = TpTab:CreateButton({
+   Name = "Tp to IceMountian",
+   Callback = function()
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(-1519, 70, -453)
+        end
+   end,
+})
+
+local Button = TpTab:CreateButton({
+   Name = "Tp to Anima",
+   Callback = function()
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(19, 17372, -4)
+        end
+   end,
+})
+
+local Button = TpTab:CreateButton({
+   Name = "Tp to Ore Place",
+   Callback = function()
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(-904, 192, -198)
+        end
+   end,
+})
+
+local USTab = Window:CreateTab("Update Soon!", nil)
+local USSection = USTab:CreateSection("I'll update this script wen i can or wen theres fixes/updates!")
